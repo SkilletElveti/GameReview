@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import * as Font from "expo-font";
 import Apploading from "expo-app-loading";
 import Home from "./Screens/home";
-
+import Navigator from './routes/homeStack';
 const getFonts = () =>
   Font.loadAsync({
     regular: require("./assets/fonts/Nunito-Regular.ttf"),
@@ -16,11 +16,12 @@ const getFonts = () =>
     if (fontsloaded) {
       return (
        //you can return any component of your choice here
-        <Home/>
+        <Navigator/>
       );
     } else {
       return (
         <Apploading
+
           startAsync={getFonts}
           onFinish={() => {
             setFontsLoaded(true);
