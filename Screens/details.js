@@ -8,8 +8,9 @@ export default function Details(props) {
     }
     return (
         <View style={globalStyles.container}>
-            <Text style={globalStyles.titelText}>Details Screen</Text>
-            <Button title='Pop' onPress={popScreen}/>
+           <Text style={globalStyles.titelText}>{props.navigation.getParam('title')}</Text>
+           <Text style={globalStyles.titelText}>{props.navigation.getParam('body')}</Text>
+           <Text style={globalStyles.titelText}>{props.navigation.getParam('rating')}</Text>
         </View>
        
     );
