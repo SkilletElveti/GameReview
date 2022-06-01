@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text,Button, TouchableOpacity, FlatList } from 'react-native';
 import {  } from 'react-native-gesture-handler';
-import { color } from 'react-native';
+
 
 import { globalStyles } from '../styles/global';
 export default function Home({navigation}) {
