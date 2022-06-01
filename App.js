@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import * as Font from "expo-font";
 import Apploading from "expo-app-loading";
 import Home from "./Screens/home";
-import Navigator from './routes/homeStack';
+import Navigator from './routes/drawer';
 const getFonts = () =>
   Font.loadAsync({
     regular: require("./assets/fonts/Nunito-Regular.ttf"),
