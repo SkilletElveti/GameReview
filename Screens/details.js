@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
-
+import Card from '../shared/Card';
 import { globalStyles } from '../styles/global';
 export default function Details(props) {
     const popScreen = () => {
@@ -8,10 +8,12 @@ export default function Details(props) {
     }
     return (
         <View style={globalStyles.container}>
-           <Text style={globalStyles.titelText}>{props.navigation.getParam('title')}</Text>
-           <Text style={globalStyles.titelText}>{props.navigation.getParam('body')}</Text>
-           <Text style={globalStyles.titelText}>{props.navigation.getParam('rating')}</Text>
+            <Card>
+                <Text style={globalStyles.titelText}>{props.navigation.getParam('title')}</Text>
+                <Text style={globalStyles.titelText}>{props.navigation.getParam('body')}</Text>
+                <Text style={globalStyles.titelText}>{props.navigation.getParam('rating')}</Text>
+            </Card>
         </View>
-       
+
     );
 }
