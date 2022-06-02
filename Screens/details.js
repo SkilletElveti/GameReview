@@ -24,6 +24,9 @@ export default function Details(props) {
 
 const styles = StyleSheet.create({
     ratings:{
-
+        flexDirection:'row',
+        justifyContent:'center',
+        paddingTop:16,
+        marginBottom: 16,
     },
 })
