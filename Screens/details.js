@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, Button } from 'react-native';
+import { StyleSheet, View, Text, Button, Image } from 'react-native';
 import Card from '../shared/Card';
 import { globalStyles } from '../styles/global';
 export default function Details(props) {
@@ -11,9 +11,17 @@ export default function Details(props) {
             <Card>
                 <Text style={globalStyles.titelText}>{props.navigation.getParam('title')}</Text>
                 <Text style={globalStyles.titelText}>{props.navigation.getParam('body')}</Text>
-                <Text style={globalStyles.titelText}>{props.navigation.getParam('rating')}</Text>
+                <View style={styles.ratings}>
+                    <Text> GameZone rating: </Text>
+                    <Image source = {require('../assets/rating-1.png')}/>
+                </View>
             </Card>
         </View>
-
     );
 }
+
+const styles = StyleSheet.create({
+    ratings:{
+
+    },
+})
