@@ -1,8 +1,10 @@
 import React from 'react';
 import { StyleSheet, View, Text, Button, Image } from 'react-native';
 import Card from '../shared/Card';
-import { globalStyles } from '../styles/global';
+import { globalStyles,images } from '../styles/global';
 export default function Details(props) {
+    const rating = props.navigation.getParam('rating');
+    console.log(rating);
     const popScreen = () => {
         props.navigation.goBack(null);
     }
@@ -13,7 +15,7 @@ export default function Details(props) {
                 <Text style={globalStyles.titelText}>{props.navigation.getParam('body')}</Text>
                 <View style={styles.ratings}>
                     <Text> GameZone rating: </Text>
-                    <Image source = {require('../assets/rating-1.png')}/>
+                    <Image source = {images.ratings[rating]}/>
                 </View>
             </Card>
         </View>
