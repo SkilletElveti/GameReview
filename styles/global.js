@@ -16,6 +16,15 @@ export const globalStyles = StyleSheet.create({
     touchable: {
         color: 'coral'
     },
+    input: {
+        borderWidth: 1,
+        marginBottom: 10,
+        marginTop: 10,
+        borderColor: '#ddd',
+        padding: 10,
+        fontSize: 18,
+        borderRadius: 6,
+    },
 });
 
 export const images = {
