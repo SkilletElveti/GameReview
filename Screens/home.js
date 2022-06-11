@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { StyleSheet, View, Text, Button, TouchableOpacity, FlatList, Modal } from 'react-native';
 import Card from '../shared/Card';
 import { MaterialIcons } from '@expo/vector-icons';
-
 import { globalStyles } from '../styles/global';
+import ReviewForm from './reviewForm';
 export default function Home({ navigation }) {
     const [modelOpen, setModelOpen] = useState(false);
     const [reviews, setReviews] = useState([
@@ -16,7 +16,7 @@ export default function Home({ navigation }) {
     }
     return (<View style={globalStyles.container}>
         <Modal visible={modelOpen} animationType='slide'>
-            <View>
+            <View style={styles.modalContent}>
                 <MaterialIcons
                     name='close'
                     size={24}
@@ -25,7 +25,7 @@ export default function Home({ navigation }) {
                     }}
                     style={styles.modalInner}
                 />
-                <Text> Hello from Modal :) </Text>
+                <ReviewForm/>
             </View>
         </Modal>
         <MaterialIcons
@@ -73,6 +73,6 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     }, 
     modalContent: {
-        
+        flex: 1,
     }
 })
