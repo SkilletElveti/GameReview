@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, Button, TouchableOpacity, FlatList, Modal } from 'react-native';
+import { StyleSheet, View, Text, Button, TouchableOpacity, FlatList, Modal, TouchableWithoutFeedback ,Keyboard} from 'react-native';
 import Card from '../shared/Card';
 import { MaterialIcons } from '@expo/vector-icons';
 import { globalStyles } from '../styles/global';
 import ReviewForm from './reviewForm';
+
 export default function Home({ navigation }) {
     const [modelOpen, setModelOpen] = useState(false);
     const [reviews, setReviews] = useState([
@@ -15,7 +16,7 @@ export default function Home({ navigation }) {
     const addReview = (Review) => {
         Review.key = reviews.size + 1;
         setReviews((currentReviews) => {
-            return [Review, ... currentReviews];
+            return [Review, ...currentReviews];
         })
         setModelOpen(false);
     }
@@ -25,17 +26,19 @@ export default function Home({ navigation }) {
     }
     return (<View style={globalStyles.container}>
         <Modal visible={modelOpen} animationType='slide'>
-            <View style={styles.modalContent}>
-                <MaterialIcons
-                    name='close'
-                    size={24}
-                    onPress={() => {
-                        setModelOpen(false)
-                    }}
-                    style={styles.modalInner}
-                />
-                <ReviewForm addReview={addReview}/>
-            </View>
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                <View style={styles.modalContent}>
+                    <MaterialIcons
+                        name='close'
+                        size={24}
+                        onPress={() => {
+                            setModelOpen(false)
+                        }}
+                        style={styles.modalInner}/>
+                    <ReviewForm addReview={addReview} />
+                </View>
+            </TouchableWithoutFeedback>
+
         </Modal>
         <MaterialIcons
             name='add'
@@ -64,7 +67,7 @@ export default function Home({ navigation }) {
 
 const styles = StyleSheet.create({
     modalToggle: {
-        marginTop:0,
+        marginTop: 0,
         marginBottom: 10,
         borderWidth: 1,
         borderColor: '#2222',
@@ -73,14 +76,14 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
     modalInner: {
-        marginTop:40,
+        marginTop: 40,
         marginBottom: 10,
         borderWidth: 1,
         borderColor: '#2222',
         padding: 10,
         borderRadius: 10,
         alignSelf: 'center',
-    }, 
+    },
     modalContent: {
         flex: 1,
     }
