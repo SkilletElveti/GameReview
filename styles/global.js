@@ -25,6 +25,10 @@ export const globalStyles = StyleSheet.create({
         fontSize: 18,
         borderRadius: 6,
     },
+    errorText: {
+        color: 'crimson',
+        textAlign: 'center',
+    }
 });
 
 export const images = {
@@ -34,6 +38,5 @@ export const images = {
         '3': require('../assets/rating-3.png'),
         '4': require('../assets/rating-4.png'),
         '5': require('../assets/rating-5.png'),
-       
     }
 }
