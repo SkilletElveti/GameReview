@@ -11,6 +11,15 @@ export default function Home({ navigation }) {
         { title: 'Gotta Catch Them All (again)', rating: 4, body: 'lorem ipsum', key: '2' },
         { title: 'Not So "Final" Fantasy', rating: 3, body: 'lorem ipsum', key: '3' },
     ]);
+
+    const addReview = (Review) => {
+        Review.key = reviews.size + 1;
+        setReviews((currentReviews) => {
+            return [Review, ... currentReviews];
+        })
+        setModelOpen(false);
+    }
+
     const onPressHandler = () => {
         navigation.navigate('Details');
     }
@@ -25,7 +34,7 @@ export default function Home({ navigation }) {
                     }}
                     style={styles.modalInner}
                 />
-                <ReviewForm/>
+                <ReviewForm addReview={addReview}/>
             </View>
         </Modal>
         <MaterialIcons
